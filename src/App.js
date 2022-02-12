@@ -1,7 +1,6 @@
 import React from 'react';
 import { Counter } from './features/counter/Counter';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import { makeStyles } from '@material-ui/styles';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
@@ -19,7 +18,7 @@ function App() {
       <Router>
         {
           !user ? (<Login />) : (
-            <Switch>
+            <Routes>
               <Route path='/profile'>
                   <Profile />
               </Route>
@@ -29,7 +28,7 @@ function App() {
               <Route path='/'>
                   <Home />
               </Route>
-            </Switch>
+            </Routes>
           )
         }
       </Router>
