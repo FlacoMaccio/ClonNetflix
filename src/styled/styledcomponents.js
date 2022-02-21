@@ -10,15 +10,25 @@ border-radius:5px;
 border: none;
 `
 
+const handlewidth = wide =>{
+    switch (wide) {
+        case "fullWidth": return "100%";
+        case "medium": return "260px";       
+        default: return "160px";            
+    }
+};
+
 
 export const NetflixButton = styled.button`
-bacground-color: red;
+bacground-color:${(color)=> color === "gray" ? "lightgaray": "red"};
 z-index:15;
 color:#fff;
-border-radius:5px;
+border-radius:${({radius})=> (radius ? "5px":null)};
 text-transform:inherit;
 paddin: 15px;
 font-size: 1.1rem;
 border: none;
 outline: none;
+cursor: pointer;
+width: ${({wide})=> handlewidth(wide)}
 `

@@ -22,8 +22,8 @@ const Profile = () => {
               </Typography>
               <Plans coste={500}>Netflix Standard</Plans>
               <Plans coste={1000}>Netflix Basic</Plans>
-              <Plans coste={1500}>Netflix Premium</Plans>
-              <NetflixButton>Sign Out</NetflixButton>
+              <Plans wide="mediumwidth" color="gray" coste={1500}>Netflix Premium</Plans>
+              <NetflixButton wide="fullwidth">Sign Out</NetflixButton>
             </div>
           </div>
         </div>

@@ -3,12 +3,12 @@ import { makeStyles, Typography } from '@material-ui/core';
 import { NetflixButton } from '../styled/styledcomponents';
 
 
-const Plans = ({cost, children}) => {
+const Plans = ({cost, children, color, wide}) => {
     const classes = useStyles();
   return (
     <div className={classes.root}>
        <Typography className={classes.standard} variant='h5'>Email Usuario</Typography>
-       <NetflixButton>Subscribe</NetflixButton>
+       <NetflixButton color={color} wide={wide}>Subscribe</NetflixButton>
 
     </div>
 
