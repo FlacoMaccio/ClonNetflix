@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
     fadeBottom: {
       position:"absolute",
       top:"30vh",
-      bottom:0
+      bottom:0,
       left:0,
       rigth:0,
       zIndex:99,

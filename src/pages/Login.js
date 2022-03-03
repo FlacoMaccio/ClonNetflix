@@ -11,7 +11,7 @@ import SingUp from './SingUp';
 
 const Login = () => {
   const classes = useStyles();
-  const {signIn, setSignIn} = useState(flase);
+  const {signIn, setSignIn} = useState(false);
   return (
     <div className={classes.root}>
           <img src={logo} alt="logo" className={classes.logo}/>

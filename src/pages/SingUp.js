@@ -3,24 +3,25 @@ import { makeStyles } from '@material-ui/styles';
 import { Typography } from '@material-ui/core';
 import { NetflixButton, NetflixInput } from '../styled/styledcomponents';
 import { auth } from '../firebase';
+import { useNavigate } from 'react-router-dom';
 
 
 const SingUp = () => {
   const classes = useStyles();
   const [email, setEmail] = useState ("");
   const [password, setPassword] = useState ("");
-
+  const navigate = useNavigate();
   const signIn = (e) => {
     e.preventDefault();
     auth.signInWithEmailPassword(email, password)
-      .then((authUser)=> console.log(authUser))
+      .then((authUser)=> navigate.push("/"))
       .cath((err)=>alert(err.message))
   }
 
   const register = (e) => {
     e.preventDefault();
     auth.createUserWithEmailPassword(email, password)
-      .then(authUser=> console.log(authUser))
+      .then((authUser)=> navigate.push("/"))
       .cath(err=>alert(err.message))
   }
 

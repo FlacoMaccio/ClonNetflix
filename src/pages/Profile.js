@@ -5,9 +5,16 @@ import { Typography } from "@material-ui/core";
 import profilelogo from "../images/profilelogo.png";
 import Plans from "../components/Plans";
 import { NetflixButton } from "../styled/styledcomponents";
+import { auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const classes = useStyles();
+  const navigate = useNavigate
+  const signOut = () => {
+    auth.signOut();
+    navigate.push("/login")
+  }
   return (
     <div className={classes.root}>
       <Header />
@@ -23,7 +30,7 @@ const Profile = () => {
               <Plans coste={500}>Netflix Standard</Plans>
               <Plans coste={1000}>Netflix Basic</Plans>
               <Plans wide="mediumwidth" color="gray" coste={1500}>Netflix Premium</Plans>
-              <NetflixButton wide="fullwidth">Sign Out</NetflixButton>
+              <NetflixButton onClick={signOut} wide="fullwidth">Sign Out</NetflixButton>
             </div>
           </div>
         </div>
