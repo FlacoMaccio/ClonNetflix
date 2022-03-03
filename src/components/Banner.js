@@ -1,14 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, makeStyles, Typography } from '@material-ui/core';
 import banner from "../images/banner2lcdp.jpg"
+import axios from 'axios';
+import requests from '../requests';
 
 
 const Banner = () => {
     const classes = useStyles();
+    const [movie, setMovie] = useState([]);
     const truncate = (string, n) => string?.length > n ? `${string.substr(0,n-1)}...`:string;
-
+    useEffect(() => {
+      const fetchData = async () => {
+        const request = await axios.get(requests.fetchNetglixOriginals);
+        const random = Math.floor(Math.random()*request.data.results.length-1)
+        setMovie(request.data.results[random])
+        return request;
+      }
+      fetchData();
+    }, [])
+    
   return (
-    <div className={classes.root}>
+    <div className={classes.root} 
+    style={{
+      backgroundImage: `url("https://image.tmdb/t/p/original/${movie?.backdrop_path}")`,
+      position: "relative",
+      height: "440px",
+      objectFit: "contein",
+      backgroundSize:"cover",
+      backgroundPosition:"center",
+      color: "#fff",
+    }}
+    >
       <div className={classes.content}>
          <Typography variant='h2' component="h1">
            Movie Title
@@ -30,13 +52,8 @@ const Banner = () => {
 }
 const useStyles = makeStyles((theme) => ({
     root: {
-      backgroundImage:  `url(${banner})`,
-      position: "relative",
-      height: "440px",
-      objectFit: "contein",
-      backgroundSize:"cover",
-      backgroundPosition:"center",
-      color: "#fff",
+      
+      
     },
     buttons:{
       "& buttton": {
