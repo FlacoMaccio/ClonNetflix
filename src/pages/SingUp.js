@@ -13,7 +13,7 @@ const SingUp = () => {
   const navigate = useNavigate();
   const signIn = (e) => {
     e.preventDefault();
-    auth.signInWithEmailPassword(email, password)
+    auth.signInWithEmailAndPassword(email, password)
       .then((authUser)=> navigate.push("/"))
       .cath((err)=>alert(err.message))
   }
@@ -37,10 +37,10 @@ const SingUp = () => {
           placeholder='Email'
           className={classes.email}/>
         <NetflixInput value={password}
-        type="password"
-        onChange={(e) => setPassword(e.target.value)}  
-        placeholder='Password' 
-        className={classes.password}/>
+          type="password"
+          onChange={(e) => setPassword(e.target.value)}  
+          placeholder='Password' 
+          className={classes.password}/>
         <NetflixButton onClick={signIn} type='submit' wide="medium" radius> Sign In</NetflixButton>
     <Typography variant='subtitle2'>
       New to Netflix ? {" "}
