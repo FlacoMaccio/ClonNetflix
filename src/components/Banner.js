@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Button, makeStyles, Typography } from '@material-ui/core';
-import banner from "../images/banner2lcdp.jpg"
 import axios from 'axios';
 import requests from '../requests';
 
